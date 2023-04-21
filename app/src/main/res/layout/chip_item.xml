@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="22dp"
+    android:paddingTop="2dp"
+    android:textColor="@color/teal_700"
+    android:textAllCaps="true"
+    app:chipBackgroundColor="@color/white"
+    app:chipStrokeWidth="1dp"
+    app:chipStrokeColor="@color/teal_700"
+    app:chipCornerRadius="10dp"
+    app:chipIconEnabled="false"
+    app:chipMinTouchTargetSize="28dp"
+    app:ensureMinTouchTargetSize="true"
+    android:clickable="false"
+    tools:text="Tag" />

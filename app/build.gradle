@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.squareup.anvil'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.nttdata.demoanvil'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.nttdata.demoanvil"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "com.squareup.testing.AnvilTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:$core_version"
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.activity:activity-ktx:$app_compat_version"
+    implementation "io.coil-kt:coil:$coil_version"
+
+
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_test_version"
+
+
+    // RETROFIT
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
+    /* Dagger2 - We are going to use dagger.android which includes
+     * support for Activity and fragment injection so we need to include
+     * the following dependencies */
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_support_version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_support_version"
+
+    /* Dagger2 - default dependency */
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_compiler_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_compiler_version"
+
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
+
+    testImplementation 'com.squareup.compiler.testing:anvil:0.11.1'
+    testImplementation 'com.squareup.testing:anvil-annotations:0.11.1'
+    kaptAndroidTest 'com.squareup.testing:anvil-compiler:0.11.1'
+
+}
